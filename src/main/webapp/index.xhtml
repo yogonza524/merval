@@ -1,14 +1,220 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Merval Data</title>
+        
+         <link rel="icon" href="https://labolsacomoestadistica.files.wordpress.com/2014/12/bolsa-y-estadc3adstica.png?w=350" type="image/png" sizes="16x16" /> 
+        
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        
+    <nav class="nav-extended blue accent-2">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Merval Pulse</a>
+      </div>
+      <div class="nav-content blue accent-3">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a class="active" href="#test1">Inicio</a></li>
+          <li class="tab"><a href="#test2">Obtener datos</a></li>
+          <li class="tab"><a href="#test4">Sobre nosotros</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="test1" class="col s12">
+        
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <div class="card first-homecard">
+                    <div class="card-content">
+                        <div class="card-title">
+                            ¿Qué hace esta plataforma?
+                        </div>
+                        <p>
+                            <b>Merval Pulse</b> proporciona una manera rápida, simple y eficiente
+                            de obtener información bursatil en tiempo real.
+                        </p>
+                        <br />
+                        <p>
+                            La infraesructura de negocios de <b>Merval Pulse</b> es flexible,
+                            con lo cual el equipo de desarrollo incrementa las caracteristicas
+                            ofrecidas en la plataforma de una manera muy veloz, ajustando en 
+                            cada cambio funcionalidad nueva y datos mas trabajados y precisos.
+                        </p>
+                        <br />
+                        <p>
+                            Te ayudamos a obtener toda la información relevante para tus 
+                            operaciones bursatiles con mucha facilidad, nosotros pensamos
+                            en procesar esos datos y tu solo piensas en tus negocios
+                        </p>
+                        <br />
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l6">
+<!--                <img src="http://completefranchisesolutions.com/wp-content/uploads/2013/04/image_ManThinking.png"
+                     class="responsive-img" />-->
+                <img src="http://pngimg.com/uploads/thinking_man/thinking_man_PNG11607.png"
+                     class="responsive-img first-homeimage" />
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <img src="https://userscontent2.emaze.com/images/faefc38a-fa51-4710-9c2d-dba0f20aaadf/9d0245c44381295034bb500761eab1fc.png"
+                     class="responsive-img second-homeimage" />
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="card second-homecard">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Maximiza tu tiempo y tus ganancias
+                        </div>
+                        <p>
+                            Como persona de negocios sabes muy bien que 
+                            el tiempo que pierdes tiene su peso en dinero
+                        </p>
+                        <br />
+                        <p>
+                            <b>Merval Pulse</b>, utilizando tecnologia de vanguardia
+                            se encarga de procesar información bursatil en segundo plano,
+                            ordenarla y presentartela en distintos formatos
+                        </p>
+                        <br />
+                        <p>
+                            Apuesta a ganar con <b>Merval Pulse</b> y podras crecer como
+                            nunca antes, asegurando que tus negocios sean realmente
+                            productivos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    <div id="test2" class="col s12">
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            ¿Cómo obtengo datos?
+                        </div>
+                        <p>
+                            Actualmente <b>Merval Pulse</b> se encuentra en 
+                            fase de desarrollo (Beta) lo cual no impide que
+                            liberemos funcionalidades diariamente
+                        </p>
+                        <br />
+                        <p>
+                            Por el momento solo podras obtener los datos de <b>Opciones</b>
+                            y <b>Panel Lider</b>, provistos por <a href="https://www.ravaonline.com">RavaOnline</a>
+                        </p>
+                        <p>
+                            Utilizamos el protocolo <b>REST</b> para proveer la información
+                        </p>
+                    </div>
+                </div>
+                    </div>
+                    <div class="col s12">
+                        <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            ¿Qué formato tienen los datos?
+                        </div>
+                        <p>
+                            Por compatibilidad con distintos sistemas hemos
+                            seleccionado el formato <b>CSV</b> como base
+                        </p>
+                        <br />
+                        <ul class="collection">
+                            <li class="collection-item">
+                                Formato <span class="badge">CSV</span>
+                            </li>
+                            <li class="collection-item">
+                                Longitud de datos <span class="badge">Ilimitada</span>
+                            </li>
+                            <li class="collection-item">
+                                Separador de campos <span class="badge">Coma (",")</span>
+                            </li>
+                            <li class="collection-item">
+                                Delimitador de registros<span class="badge">Barra Vertical ("|")</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m8 l8">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Prueba Online
+                        </div>
+                        <p>
+                            Selecciona una de las siguientes opciones
+                        </p>
+                        <div class="row">
+                            <div class="col s12 m6 l6" >
+                                <a class="btn opciones">Obtener las opciones actuales</a>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <a class="btn panel-lider">Obtener Panel Lider</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="console" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Resultados</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="test4" class="col s12">Test 4</div>
+    
+    <script>
+        $(document).on("ready", function(){
+            $(".first-homeimage").css({
+                "height" : $(".first-homecard").height() + "px"
+            });
+            $(".second-homeimage").css({
+                "height" : $(".second-homecard").height() + "px"
+            });
+            
+            $('select').material_select();
+            
+            $(document).on("click",".opciones", function(e){
+               $.ajax({
+                url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
+                cache: false,
+                success: function(result){
+                  $("#console").val(result);
+                }
+              });
+            });
+        });
+    </script>
+    
     </h:body>
 </html>
 
