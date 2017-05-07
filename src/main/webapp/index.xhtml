@@ -210,9 +210,8 @@
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
                 cache: false,
                 success: function(result){
-                  $("#console").val("");
-                  $("#console").append(result);
-                  $("textarea").height( $("textarea")[0].scrollHeight);
+                  $("#console").val(result);
+                  $("#console").height( $("#console").scrollHeight);
                 }
               });
             });
