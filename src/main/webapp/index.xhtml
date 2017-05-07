@@ -263,7 +263,10 @@
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
                 cache: false,
                 success: function(result){
-                  $("#console").text(result.replace('|','\r\n'));
+                    while(result.indexOf('|') !== -1){
+                        result = result.replace('|','\r\n');
+                    }
+                  $("#console").text(result);
                   $("#progress").hide();
                   $(".opciones").removeClass("disabled");
                   $("#console").css({
@@ -300,7 +303,10 @@
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/leaderPanel",
                 cache: false,
                 success: function(result){
-                  $("#console").text(result.replace('|','\r\n'));
+                    while(result.indexOf('|') !== -1){
+                        result = result.replace('|','\r\n');
+                    }
+                  $("#console").text(result);
                   $("#progress").hide();
                   $(".panel-lider").removeClass("disabled");
                   $("#console").css({
