@@ -259,6 +259,9 @@
                   $("#console").text(result);
                   $("#progress").hide();
                   $(".opciones").removeClass("disabled");
+                  $("#console").css({
+                        "opacity": "1.0"
+                    });
                 },
                 xhr: function(){
                     // get the native XmlHttpRequest object
@@ -278,6 +281,9 @@
                 beforeSend: function(){
                     $("#progress").show();
                     $(".opciones").addClass("disabled");
+                    $("#console").css({
+                        "opacity": "0.5"
+                    });
                 }
               });
             });
@@ -290,6 +296,9 @@
                   $("#console").text(result);
                   $("#progress").hide();
                   $(".panel-lider").removeClass("disabled");
+                  $("#console").css({
+                        "opacity": "1.0"
+                    });
                 },
                 xhr: function(){
                     // get the native XmlHttpRequest object
@@ -309,6 +318,9 @@
                 beforeSend: function(){
                     $("#progress").show();
                     $(".panel-lider").addClass("disabled");
+                    $("#console").css({
+                        "opacity": "0.5"
+                    });
                 }
               });
             });
