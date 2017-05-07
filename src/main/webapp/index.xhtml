@@ -194,6 +194,8 @@
     
     <script>
         $(document).on("ready", function(){
+            $("#console").val("");
+            
             $(".first-homeimage").css({
                 "height" : $(".first-homecard").height() + "px"
             });
@@ -208,7 +210,9 @@
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
                 cache: false,
                 success: function(result){
-                  $("#console").val(result);
+                  $("#console").val("");
+                  $("#console").append(result);
+                  $("textarea").height( $("textarea")[0].scrollHeight);
                 }
               });
             });
