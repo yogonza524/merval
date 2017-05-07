@@ -264,7 +264,8 @@
                 cache: false,
                 success: function(result){
                     while(result.indexOf('|') !== -1){
-                        result = result.replace('|','\r\n');
+//                        result = result.replace('|','\r\n');
+                        result = result.replace('|','<br />');
                     }
                   $("#console").text(result);
                   $("#progress").hide();
@@ -304,7 +305,8 @@
                 cache: false,
                 success: function(result){
                     while(result.indexOf('|') !== -1){
-                        result = result.replace('|','\r\n');
+                        //result = result.replace('|','\r\n');
+                        result = result.replace('|','<br />');
                     }
                   $("#console").text(result);
                   $("#progress").hide();
