@@ -60,7 +60,20 @@ public class Rest {
             Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return Response.status(code).entity(result).build();
+        File file = null;
+        String title = "leaderPanel.csv";
+        
+        file = createFile(title, result);
+        
+        //return Response.status(code).entity(result).build();
+        if (file != null) {
+            ResponseBuilder response = Response.ok((Object) file); 
+            response.header("Content-Disposition", "attachment; filename=\"" + title + "\"");
+            return response.build();
+        }
+        
+        return Response.status(500).entity("Error: process aborted, please try later").build();
+        //return Response.status(code).entity(result).build();
     }
     
     @GET
@@ -89,22 +102,16 @@ public class Rest {
         File file = null;
         String title = "options.csv";
         
-        //Create a file
-        try(PrintWriter writer = new PrintWriter(title, "UTF-8")) {
-            writer.print(result);
-            writer.close();
-            
-        } catch (IOException e) {
-           // do something
-           Response.status(500).entity("Error creating file...aborting").build();
-        }
-        file = new File(title);
+        file = createFile(title, result);
         
         //return Response.status(code).entity(result).build();
-        ResponseBuilder response = Response.ok((Object) file); 
-        response.header("Content-Disposition", "attachment; filename=\"" + title + "\"");
-        return response.build();
-        //return Response.status(code).entity(result).build();
+        if (file != null) {
+            ResponseBuilder response = Response.ok((Object) file); 
+            response.header("Content-Disposition", "attachment; filename=\"" + title + "\"");
+            return response.build();
+        }
+        
+        return Response.status(500).entity("Error: process aborted, please try later").build();
     }
     
     public Document get(String url) throws IOException{
@@ -154,5 +161,20 @@ public class Rest {
         }
                 
         return output;
+    }
+
+    private File createFile(String title, String result) {
+        //Create a file
+        try(PrintWriter writer = new PrintWriter(title, "UTF-8")) {
+            writer.print(result);
+            writer.close();
+            
+            return new File(title);
+            
+        } catch (IOException e) {
+           // do something
+            System.out.println("Error creating file");
+        }
+        return null;
     }
 }
