@@ -267,7 +267,7 @@
 //                        result = result.replace('|','\r\n');
                         result = result.replace('|','<br />');
                     }
-                  $("#console").text(result);
+                  $("#console").html(result);
                   $("#progress").hide();
                   $(".opciones").removeClass("disabled");
                   $("#console").css({
@@ -308,7 +308,7 @@
                         //result = result.replace('|','\r\n');
                         result = result.replace('|','<br />');
                     }
-                  $("#console").text(result);
+                  $("#console").html(result);
                   $("#progress").hide();
                   $(".panel-lider").removeClass("disabled");
                   $("#console").css({
