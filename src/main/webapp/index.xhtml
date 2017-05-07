@@ -19,7 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     
     </h:head>
-    <h:body onload="init()">
+    <h:body>
         
     <nav class="nav-extended blue accent-2">
       <div class="nav-wrapper">
@@ -181,8 +181,10 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="console" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Resultados</label>
+                                <h4>Resultados</h4>
+                                <span id="console">
+                                    
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -210,43 +212,11 @@
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
                 cache: false,
                 success: function(result){
-                  $("#console").val(result);
+                  $("#console").text(result);
                 }
               });
             });
         });
-        
-        var observe;
-        if (window.attachEvent) {
-            observe = function (element, event, handler) {
-                element.attachEvent('on'+event, handler);
-            };
-        }
-        else {
-            observe = function (element, event, handler) {
-                element.addEventListener(event, handler, false);
-            };
-        }
-        function init () {
-            var text = document.getElementById('console');
-            function resize () {
-                text.style.height = 'auto';
-                text.style.height = text.scrollHeight+'px';
-            }
-            /* 0-timeout to get the already changed text */
-            function delayedResize () {
-                window.setTimeout(resize, 0);
-            }
-            observe(text, 'change',  resize);
-            observe(text, 'cut',     delayedResize);
-            observe(text, 'paste',   delayedResize);
-            observe(text, 'drop',    delayedResize);
-            observe(text, 'keydown', delayedResize);
-
-            text.focus();
-            text.select();
-            resize();
-        }
     </script>
     
     </h:body>
