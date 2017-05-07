@@ -173,15 +173,18 @@
                         </p>
                         <div class="row">
                             <div class="col s12 m6 l6" >
-                                <a class="btn opciones">Obtener las opciones actuales</a>
+                                <a class="btn opciones blue accent-4">Obtener las opciones actuales</a>
                             </div>
                             <div class="col s12 m6 l6">
-                                <a class="btn panel-lider">Obtener Panel Lider</a>
+                                <a class="btn panel-lider blue accent-4">Obtener Panel Lider</a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <h4>Resultados</h4>
+                                <div id="progress">
+                                    
+                                </div>
                                 <span id="console">
                                     
                                 </span>
@@ -192,11 +195,32 @@
             </div>
         </div>
     </div>
-    <div id="test4" class="col s12">Test 4</div>
+    <div id="test4" class="col s12">
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-content">
+                <span class="card-title">Gonzalo H. Mendoza</span>
+              <img src="https://avatars3.githubusercontent.com/u/10436652?v=3&amp;u=c2a0fa5c9d449e8eed614e75596fa402f8561918&amp;s=400" />
+              <p>Desarrollador de Software Java Web</p>
+            </div>
+            <div class="card-action">
+              <a href="https://www.linkedin.com/in/gonzalo-mendoza-825538b6">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+            </div>
+            <div class="col s12 m6 l6"></div>
+        </div>
+    </div>
     
     <script>
         $(document).on("ready", function(){
             $("#console").val("");
+            $("#progress").hide();
             
             $(".first-homeimage").css({
                 "height" : $(".first-homecard").height() + "px"
@@ -210,6 +234,36 @@
             $(document).on("click",".opciones", function(e){
                $.ajax({
                 url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options",
+                cache: false,
+                success: function(result){
+                  $("#console").text(result);
+                },
+                xhr: function(){
+                    // get the native XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr() ;
+                    // set the onprogress event handler
+                    xhr.upload.onprogress = function(evt){ 
+                        //console.log('progress', evt.loaded/evt.total*100); 
+                    } ;
+                    // set the onload event handler
+                    xhr.upload.onload = function(){ 
+                        $("#progress").hide();
+                        $(".opciones").removeClass("disabled");
+                        //done
+                    } ;
+                    // return the customized object
+                    return xhr ;
+                },
+                beforeSend: function(){
+                    $("#progress").show();
+                    $(".opciones").addClass("disabled");
+                }
+              });
+            });
+            
+            $(document).on("click",".panel-lider", function(e){
+               $.ajax({
+                url: "http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/leaderPanel",
                 cache: false,
                 success: function(result){
                   $("#console").text(result);
