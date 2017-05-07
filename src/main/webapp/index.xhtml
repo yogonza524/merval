@@ -166,6 +166,24 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-title">
+                            Rutas
+                        </div>
+                        <p>
+                            Utilice las siguientes rutas para obtener la informacion
+                            desde sus sistemas, desde el navegador o desde su dispositivo
+                            móvil
+                        </p>
+                        <a href="http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/leaderPanel" 
+                           target="_blank">
+                            http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/leaderPanel
+                        </a>
+                        <a href="http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options" 
+                           target="_blank">http://mervaldata-merval.1d35.starter-us-east-1.openshiftapps.com/Merval/rest/data/options</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
                             Prueba Online
                         </div>
                         <p>
@@ -183,7 +201,9 @@
                             <div class="input-field col s12">
                                 <h4>Resultados</h4>
                                 <div id="progress">
-                                    
+                                    <div class="progress blue lighten-3">
+                                        <div class="indeterminate"></div>
+                                    </div>
                                 </div>
                                 <span id="console">
                                     
@@ -237,6 +257,8 @@
                 cache: false,
                 success: function(result){
                   $("#console").text(result);
+                  $("#progress").hide();
+                  $(".opciones").removeClass("disabled");
                 },
                 xhr: function(){
                     // get the native XmlHttpRequest object
@@ -247,8 +269,7 @@
                     } ;
                     // set the onload event handler
                     xhr.upload.onload = function(){ 
-                        $("#progress").hide();
-                        $(".opciones").removeClass("disabled");
+                        
                         //done
                     } ;
                     // return the customized object
@@ -267,6 +288,27 @@
                 cache: false,
                 success: function(result){
                   $("#console").text(result);
+                  $("#progress").hide();
+                  $(".panel-lider").removeClass("disabled");
+                },
+                xhr: function(){
+                    // get the native XmlHttpRequest object
+                    var xhr = $.ajaxSettings.xhr() ;
+                    // set the onprogress event handler
+                    xhr.upload.onprogress = function(evt){ 
+                        //console.log('progress', evt.loaded/evt.total*100); 
+                    } ;
+                    // set the onload event handler
+                    xhr.upload.onload = function(){ 
+                        
+                        //done
+                    } ;
+                    // return the customized object
+                    return xhr ;
+                },
+                beforeSend: function(){
+                    $("#progress").show();
+                    $(".panel-lider").addClass("disabled");
                 }
               });
             });
