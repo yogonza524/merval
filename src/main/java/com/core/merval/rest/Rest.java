@@ -7,13 +7,21 @@
 package com.core.merval.rest;
 
 import com.core.merval.model.RavaData;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -78,7 +86,25 @@ public class Rest {
             Logger.getLogger(Rest.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return Response.status(code).entity(result).build();
+        File file = null;
+        String title = "options.csv";
+        
+        //Create a file
+        try(PrintWriter writer = new PrintWriter(title, "UTF-8")) {
+            writer.print(result);
+            writer.close();
+            
+        } catch (IOException e) {
+           // do something
+           Response.status(500).entity("Error creating file...aborting").build();
+        }
+        file = new File(title);
+        
+        //return Response.status(code).entity(result).build();
+        ResponseBuilder response = Response.ok((Object) file); 
+        response.header("Content-Disposition", "attachment; filename=\"" + title + "\"");
+        return response.build();
+        //return Response.status(code).entity(result).build();
     }
     
     public Document get(String url) throws IOException{
