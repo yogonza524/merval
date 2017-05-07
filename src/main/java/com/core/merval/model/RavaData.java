@@ -293,8 +293,8 @@ public class RavaData implements Serializable{
                 .append(nominalVolume)
                 .append(separator)
                 .append(effectiveVolume)
-                .append(delimiter)
-                .append(carriage);
+                .append(delimiter);
+//                .append(carriage);
         
         return builder.toString();
     }
