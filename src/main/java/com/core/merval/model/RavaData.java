@@ -18,19 +18,19 @@ import java.util.Objects;
 public class RavaData implements Serializable{
 
     private String species;
-    private double last;
-    private double percentageDay;
-    private double previous;
-    private double opening;
-    private double min;
-    private double max;
+    private String last;
+    private String percentageDay;
+    private String previous;
+    private String opening;
+    private String min;
+    private String max;
     private String hour;
-    private int nominalVolume;
-    private int effectiveVolume;
+    private String nominalVolume;
+    private String effectiveVolume;
     
     private RavaData() {} //Use Builder
 
-    private RavaData(String species, double last, double percentageDay, double previous, double opening, double min, double max, String hour, int nominalVolume, int effectiveVolume) {
+    private RavaData(String species, String last, String percentageDay, String previous, String opening, String min, String max, String hour, String nominalVolume, String effectiveVolume) {
         this.species = species;
         this.last = last;
         this.percentageDay = percentageDay;
@@ -51,51 +51,51 @@ public class RavaData implements Serializable{
         this.species = species;
     }
 
-    public double getUltimo() {
+    public String getUltimo() {
         return last;
     }
 
-    public void setUltimo(double last) {
+    public void setUltimo(String last) {
         this.last = last;
     }
 
-    public double getPercentageDay() {
+    public String getPercentageDay() {
         return percentageDay;
     }
 
-    public void setPercentageDay(double percentageDay) {
+    public void setPercentageDay(String percentageDay) {
         this.percentageDay = percentageDay;
     }
 
-    public double getPrevious() {
+    public String getPrevious() {
         return previous;
     }
 
-    public void setPrevious(double previous) {
+    public void setPrevious(String previous) {
         this.previous = previous;
     }
 
-    public double getOpening() {
+    public String getOpening() {
         return opening;
     }
 
-    public void setOpening(double opening) {
+    public void setOpening(String opening) {
         this.opening = opening;
     }
 
-    public double getMin() {
+    public String getMin() {
         return min;
     }
 
-    public void setMin(double min) {
+    public void setMin(String min) {
         this.min = min;
     }
 
-    public double getMax() {
+    public String getMax() {
         return max;
     }
 
-    public void setMax(double max) {
+    public void setMax(String max) {
         this.max = max;
     }
 
@@ -107,35 +107,35 @@ public class RavaData implements Serializable{
         this.hour = hour;
     }
 
-    public int getNominalVolume() {
+    public String getNominalVolume() {
         return nominalVolume;
     }
 
-    public void setNominalVolume(int nominalVolume) {
+    public void setNominalVolume(String nominalVolume) {
         this.nominalVolume = nominalVolume;
     }
 
-    public int getEffectiveVolume() {
+    public String getEffectiveVolume() {
         return effectiveVolume;
     }
 
-    public void setEffectiveVolume(int effectiveVolume) {
+    public void setEffectiveVolume(String effectiveVolume) {
         this.effectiveVolume = effectiveVolume;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.species);
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.last) ^ (Double.doubleToLongBits(this.last) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.percentageDay) ^ (Double.doubleToLongBits(this.percentageDay) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.previous) ^ (Double.doubleToLongBits(this.previous) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.opening) ^ (Double.doubleToLongBits(this.opening) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.min) ^ (Double.doubleToLongBits(this.min) >>> 32));
-        hash = 79 * hash + (int) (Double.doubleToLongBits(this.max) ^ (Double.doubleToLongBits(this.max) >>> 32));
-        hash = 79 * hash + Objects.hashCode(this.hour);
-        hash = 79 * hash + this.nominalVolume;
-        hash = 79 * hash + this.effectiveVolume;
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.species);
+        hash = 37 * hash + Objects.hashCode(this.last);
+        hash = 37 * hash + Objects.hashCode(this.percentageDay);
+        hash = 37 * hash + Objects.hashCode(this.previous);
+        hash = 37 * hash + Objects.hashCode(this.opening);
+        hash = 37 * hash + Objects.hashCode(this.min);
+        hash = 37 * hash + Objects.hashCode(this.max);
+        hash = 37 * hash + Objects.hashCode(this.hour);
+        hash = 37 * hash + Objects.hashCode(this.nominalVolume);
+        hash = 37 * hash + Objects.hashCode(this.effectiveVolume);
         return hash;
     }
 
@@ -151,50 +151,51 @@ public class RavaData implements Serializable{
             return false;
         }
         final RavaData other = (RavaData) obj;
-        if (Double.doubleToLongBits(this.last) != Double.doubleToLongBits(other.last)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.percentageDay) != Double.doubleToLongBits(other.percentageDay)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.previous) != Double.doubleToLongBits(other.previous)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.opening) != Double.doubleToLongBits(other.opening)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.min) != Double.doubleToLongBits(other.min)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.max) != Double.doubleToLongBits(other.max)) {
-            return false;
-        }
-        if (this.nominalVolume != other.nominalVolume) {
-            return false;
-        }
-        if (this.effectiveVolume != other.effectiveVolume) {
-            return false;
-        }
         if (!Objects.equals(this.species, other.species)) {
+            return false;
+        }
+        if (!Objects.equals(this.last, other.last)) {
+            return false;
+        }
+        if (!Objects.equals(this.percentageDay, other.percentageDay)) {
+            return false;
+        }
+        if (!Objects.equals(this.previous, other.previous)) {
+            return false;
+        }
+        if (!Objects.equals(this.opening, other.opening)) {
+            return false;
+        }
+        if (!Objects.equals(this.min, other.min)) {
+            return false;
+        }
+        if (!Objects.equals(this.max, other.max)) {
             return false;
         }
         if (!Objects.equals(this.hour, other.hour)) {
             return false;
         }
+        if (!Objects.equals(this.nominalVolume, other.nominalVolume)) {
+            return false;
+        }
+        if (!Objects.equals(this.effectiveVolume, other.effectiveVolume)) {
+            return false;
+        }
         return true;
     }
 
+    
     public static class RavaDataBuilder{
         private String species;
-        private double last;
-        private double percentageDay;
-        private double previous;
-        private double opening;
-        private double min;
-        private double max;
+        private String last;
+        private String percentageDay;
+        private String previous;
+        private String opening;
+        private String min;
+        private String max;
         private String hour;
-        private int nominalVolume;
-        private int effectiveVolume;
+        private String nominalVolume;
+        private String effectiveVolume;
 
         public RavaDataBuilder() {
         }
@@ -204,32 +205,32 @@ public class RavaData implements Serializable{
             return this;
         }
         
-        public RavaDataBuilder last(double last){
+        public RavaDataBuilder last(String last){
             this.last = last;
             return this;
         }
         
-        public RavaDataBuilder percentageDay(double percentageDay){
+        public RavaDataBuilder percentageDay(String percentageDay){
             this.percentageDay = percentageDay;
             return this;
         }
         
-        public RavaDataBuilder previous(double previous){
+        public RavaDataBuilder previous(String previous){
             this.previous = previous;
             return this;
         }
         
-        public RavaDataBuilder opening(double opening){
+        public RavaDataBuilder opening(String opening){
             this.opening = opening;
             return this;
         }
         
-        public RavaDataBuilder min(double min){
+        public RavaDataBuilder min(String min){
             this.min = min;
             return this;
         }
         
-        public RavaDataBuilder max(double max){
+        public RavaDataBuilder max(String max){
             this.max = max;
             return this;
         }
@@ -239,12 +240,12 @@ public class RavaData implements Serializable{
             return this;
         }
         
-        public RavaDataBuilder nominalVolume(int nominalVolume){
+        public RavaDataBuilder nominalVolume(String nominalVolume){
             this.nominalVolume = nominalVolume;
             return this;
         }
         
-        public RavaDataBuilder effectiveVolume(int effectiveVolume){
+        public RavaDataBuilder effectiveVolume(String effectiveVolume){
             this.effectiveVolume = effectiveVolume;
             return this;
         }
@@ -270,7 +271,7 @@ public class RavaData implements Serializable{
     public String toCSV(){
         String separator = ",";
         String delimiter = "|";
-        String carriage = "\n";
+//        String carriage = "\n";
         
         StringBuilder builder = new StringBuilder();
         

@@ -146,15 +146,15 @@ public class Rest {
 
             RavaData data = new RavaData.RavaDataBuilder()
                     .species(species.text())
-                    .last(!last.text().contains("-")? Double.valueOf(last.text().replaceAll(",", ".")) : 0.0)
-                    .percentageDay(!percentageDay.text().contains("-")? Double.valueOf(percentageDay.text().replaceAll(",", ".")) : 0.0)
-                    .previous(!previous.text().contains("-")? Double.valueOf(previous.text().replaceAll(",", ".")) : 0.0)
-                    .opening(!opening.text().contains("-")? Double.valueOf(opening.text().replaceAll(",", ".")) : 0.0)
-                    .min(!min.text().contains("-")? Double.valueOf(min.text().replaceAll(",", ".")) : 0.0)
-                    .max(!max.text().contains("-")? Double.valueOf(max.text().replaceAll(",", ".")) : 0.0)
+                    .last(last.text())
+                    .percentageDay(percentageDay.text())
+                    .previous(previous.text())
+                    .opening(opening.text())
+                    .min(min.text())
+                    .max(max.text())
                     .hour(hour.text())
-                    .nominalVolume(!nominalVolume.text().isEmpty() && nominalVolume.text().length() > 0 && !nominalVolume.text().equals("-") ? Integer.valueOf(nominalVolume.text().replaceAll("\\.", "")) : 0)
-                    .effectiveVolume(!effectiveVolume.text().isEmpty() && !nominalVolume.text().contains("-") ? Integer.valueOf(effectiveVolume.text().replaceAll("\\.", "")) : 0)
+                    .nominalVolume(nominalVolume.text())
+                    .effectiveVolume(effectiveVolume.text())
                     .build();
 
             output += data.toCSV();
