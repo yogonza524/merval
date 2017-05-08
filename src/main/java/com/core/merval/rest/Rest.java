@@ -145,16 +145,16 @@ public class Rest {
             Element effectiveVolume = row.select("td:nth-child(10)").first();
 
             RavaData data = new RavaData.RavaDataBuilder()
-                    .species(species.text())
-                    .last(last.text())
-                    .percentageDay(percentageDay.text())
-                    .previous(previous.text())
-                    .opening(opening.text())
-                    .min(min.text())
-                    .max(max.text())
-                    .hour(hour.text())
-                    .nominalVolume(nominalVolume.text())
-                    .effectiveVolume(effectiveVolume.text())
+                    .species(species.text().replaceAll(",","."))
+                    .last(last.text().replaceAll(",","."))
+                    .percentageDay(percentageDay.text().replaceAll(",","."))
+                    .previous(previous.text().replaceAll(",","."))
+                    .opening(opening.text().replaceAll(",","."))
+                    .min(min.text().replaceAll(",","."))
+                    .max(max.text().replaceAll(",","."))
+                    .hour(hour.text().replaceAll(",","."))
+                    .nominalVolume(nominalVolume.text().replaceAll(",","."))
+                    .effectiveVolume(effectiveVolume.text().replaceAll(",","."))
                     .build();
 
             output += data.toCSV();
